@@ -1,0 +1,740 @@
+/*
+1-common style
+2-general style
+3-sections
+3.1- header section
+3.2- home section
+3.3
+*/
+/* 1-common style*/
+.overlay{
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+background-color:rgba(0, 0, 0, 0.4);
+}
+.hover-opasity{
+    transition:opacity .5S;     /*this made opacity change in 0.5 sec */
+}
+.hover-opasity:hover{
+    opacity: 0.8;
+}
+
+/*------------------------------------------------------*/
+
+    /*-------------------*/
+    .Ltr-effect , .Ttb-effect{
+        position: relative;
+    }
+
+    .Ttb-effect::after ,.Ltr-effect::after {
+    position: absolute;
+    content: "";
+    background: #333;
+    z-index: -1;
+    top: 0%;
+    left: 0%;
+    }
+    .Ttb-effect::after{
+        width: 100%;
+        height: 0%;
+        transition: height .5S;
+        }
+
+    .Ltr-effect::after{
+            width: 0%;
+            height: 100%;
+            transition: width .5S;
+            }
+
+    .Ttb-effect:hover::after{
+            height: 100%;
+        }
+    .Ltr-effect:hover::after{
+            width: 100%;
+        }
+
+/*2-general style*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+.clear{
+    clear: both;
+}
+h1,h2,h3{
+    font-family: 'Montserrat', sans-serif;
+}
+
+button{
+    font-family: 'Varela Round', sans-serif;
+}
+
+/* header in each section of website*/
+.section-header{
+    text-align: center;
+}
+.section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+}
+
+.section-header .line{
+    display: block;
+    height: 4px;
+    width: 70px;
+    background: #6195ff;
+    margin: 0px auto  70px auto;
+}
+
+/*padding in each section*/
+.pd-y{
+    padding: 120px 0;
+}
+/*3.1-header section*/
+.header{
+ position: fixed;
+ width: 100%;         
+ z-index: 10;     /*used to display element from back of other element*/
+ background: rgba(0, 0, 0, 0.6);
+}
+.header .logo{
+    width: 40%;
+   float: left;
+}
+.header .logo img{
+    width: 20%;
+    margin-top: 15px;
+}
+.header .navbar{
+    width: 60%;
+    float: left;
+    list-style: none;
+}
+
+.header .navbar >li{
+    display: inline-block;
+    text-align: right;
+}
+.header .navbar > li > a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 20px 10px;   /* 20 px from top*/
+    text-transform: capitalize;
+   
+}
+  
+header .navbar > li a.actv::after,.header .navbar > li > a::after{
+    content: "";
+    display:block ;
+    height: 3px;
+    background: blue;
+    transition: width .5S; 
+}
+.header .navbar > li > a.actv::after{ 
+    width:100%;        /*  first element by default has this indicator*/
+}
+.header .navbar > li > a::after{
+    width:0;     /* we give it width zero untill we hover*/
+}
+
+.header .navbar > li > a:hover::after{
+width: 100%;
+}
+
+/*drop down*/
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+position: absolute;
+background:#6195ff;
+width: 100px;
+text-align: center;
+left: -50%;
+top: 80%;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.5S , visibility 0.5S;
+
+}
+
+.dropdown-menu > li > a{
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+}
+/*home section*/
+
+.home{
+    height: 100vh;  
+    background: url(images/background/background1.webp);  
+    background-size: cover;
+    position: relative;
+
+}
+
+.home-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width: 65%;
+}
+
+.home-title{
+    color: white;
+    font: 4rem;
+    text-transform: uppercase;
+}
+.home-desc{
+    margin: 20px 0px;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+
+.home .btn{
+    width: 160px;
+    padding:15px 0px ;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font: 15px;
+
+}
+.home .btn-start{
+    background: white;
+    margin-right: 10px;
+}
+.home .btn-learn{
+    background:#6195ff;
+    margin-right: 10px;
+    color: white;
+}
+
+/* about section*/
+
+
+.about-content{
+    overflow: hidden;
+}
+.about-item{
+    width: 30%;
+    float: left;
+    text-align: center;
+    border: 1px solid #888;
+    padding: 30px 15px;
+}
+.mg{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.about-item .icon{
+    color: #6195ff;
+    margin-bottom: 10px;
+}
+
+.about-item .item-header{
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color .5S;
+}
+.about-item .item-desc{
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #899;
+}
+
+.about-item .about-link{
+    text-decoration: none;
+    color: #6195ff;
+}
+.about-item:hover .item-header{
+color: white;
+}
+
+
+/* portfolio*/
+.portfolio{
+    background: rgb(228, 226, 226);
+    
+}
+.portf-content{
+    overflow: hidden;
+}
+
+.portf-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 20px;
+}
+.portf-item img{
+    width: 100%;   /*from its parent portf-item"30%"*/
+}
+
+.portf-item.mg{
+    margin: 0 5%;
+}
+
+.portf-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5S  visibility 0.5s;
+}
+
+.portf-item:hover .portf-layer{
+    opacity: 1;
+    visibility: visible;
+}
+
+.portf-layer .mid-content{
+position: absolute;
+left:50%;
+top: 50%;
+transform: translate(-50%,-50%);
+width: 70%;
+text-align: center;
+}
+
+.portf-layer .categ{
+    color: royalblue;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    top: 20px;
+    transition: top 0.5s;
+}
+
+.portf-layer .layer-title{
+    font-size: 30px;
+    color: #ffffff;
+    margin-bottom: 5px;
+    position: relative;
+    top: 20px;
+    transition: top 0.5s;
+transition-delay: 0.2s;
+
+}
+
+.portf-layer .mid-content >a{
+background:#fff;
+position: relative;
+    top: 20px;
+    transition: top 0.5s;
+    transition-delay: 0.5S;
+
+}
+
+.portf-item:hover  .portf-layer .categ,
+.portf-item:hover  .portf-layer .layer-title,
+.portf-item:hover .portf-layer  a{
+    top: 0;
+}
+
+.portf-layer .mid-content >a i{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+/* services section*/
+.services{
+    /* background:whitesmoke; */
+}
+
+.serv-contetn{
+    overflow: hidden;
+}
+
+.serv-item{
+width: 30%;
+float: left;
+border: 1px solid #888;
+padding :20px 15px 30px 60px;    /*to put icon in left using position*/
+position: relative;
+}
+
+.serv-item .serv-icon{
+position: absolute; 
+left: 30px;
+top: 25px;
+font-size: larger;
+color: blue;
+}
+
+.serv-item .item-header{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+.serv-item .item-desc{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 20px;
+    color: #888;
+}
+
+/*advertise section*/
+
+.adverise{
+    background: whitesmoke;
+}
+
+.adv-item{
+    width: 50%;
+    float: left;
+}
+
+.adv-item .section-header{
+    text-align: left;
+}
+
+.adv-item .section-header .line{
+margin:0 0 40px 0;
+}
+
+.adv-item .adv-desc{
+    color:#888;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.adv-item .adv-list{
+    list-style: none;
+}
+.adv-item .adv-list li{
+    margin: 10px;
+}
+.adv-item .adv-list li >i{
+    border: 1px solid black;
+    color: blue;
+    padding:7px 4px;
+    border-radius:50%;
+}
+
+/* numbers section*/
+.Numbers{
+    position: relative;
+    background: url(images/background/background2.webp);
+    height: 250px;
+    background-size:cover ;
+    background-attachment: fixed;
+
+}
+
+.num-content{
+    overflow: hidden;
+   padding: 100px 0; 
+}
+.Numbers .num-item{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.num-item .icon{
+    color:blue;
+    margin-bottom:10px ;
+}
+
+.num-item .num-title{
+    color: whitesmoke;
+    font: bold 30px;
+    margin-bottom: 10px;
+}
+
+.num-item .num-text{
+    color: whitesmoke;
+
+}
+
+.pricing{
+
+}
+.pricing-content{
+overflow: hidden;
+}
+
+.pricing-item{
+    width: 30%;
+    float: left;
+    padding: 20px 20px;
+    border: 1px solid #888;
+    text-align: center;
+}
+
+.pricing-item .pr-title{
+    text-transform: uppercase;
+   color: #999;
+}
+
+.pricing-item .permonth{
+    width: 100px;
+    height: 100px;
+    padding :25px;
+    border:2px solid #6195ff ;
+    border-radius: 50% ;
+    margin :15px auto;
+    transition: color 0.5S;
+}
+
+.pricing-item .permonth .dollar ,.pricing-item .permonth .month{
+    font: bold;
+    font-size: 17px;
+
+}
+
+.pricing-item .pr-list{
+    list-style: none;
+
+}
+.pricing-item .pr-list >li{
+    color: #999;
+    margin: 15px;
+    text-transform: capitalize;
+
+}
+
+.pricing-item .purchase{
+    background: none;
+    border: 0;
+    display :block;
+    width: 120px;
+    padding: 10px;
+    margin :15px auto;
+    border: 1px solid #7ba7f7;
+    color: #7ba7f7;
+    
+}
+
+.pricing-item:hover  .pr-title{
+    color: #6195ff;
+}
+
+.pricing-item:hover .permonth{
+    color: #fff;
+
+}
+
+/*testmonialsection*/
+
+.testmonial{
+    position: relative;
+    background: url(images/background/background3.webp);
+    background-attachment: fixed;
+    height: 300px;
+}
+
+.test-content{
+    overflow: hidden;
+    padding :50px 30px;
+   
+}
+
+.test-content .test-item{
+    width: 40%;
+    float: left;
+    color: #fff;
+    margin: 5%;
+}
+
+.test-content .test-item .test-top{
+    position: relative;
+    padding: 20px 2px 40px 100px;
+}
+
+.test-top img{
+    position: absolute;
+    left: 0px;
+    top:10px;
+    border-radius: 50%;
+}
+.test-desc{
+    line-height: 1.7;
+    font: 17px;
+
+}
+
+/*our team section*/
+
+.team-contetn{
+    overflow: hidden;
+}
+
+.team-item{
+    width :30%;
+    float :left;
+    background: #e8e8e8;
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.team-item .team-img{
+    width:90%;
+    margin: auto;
+    position: relative;
+}
+
+.team-img .team-overlay{
+    position :absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.team-overlay >a{
+    display: block;
+    width:40px;
+    height:40px;
+    background:#6195ff;
+    color: white;
+    margin-left: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5S;
+}
+
+
+.team-overlay >a i{
+    line-height: 40px;
+}
+
+.team-item .team-img img{
+    width: 100%;
+}
+
+.team-info  .team-title{
+color: black;
+text-transform: uppercase;
+margin: 10px 0;
+}
+.team-info .team-role{
+    color: #6195ff;
+    text-transform: capitalize;
+}
+
+.team-item:hover .team-overlay >a {
+opacity: 1;
+visibility: visible;
+}
+
+.team-item.Ttb-effect{
+    z-index:1;
+}
+
+/*blog-section*/
+.blog{
+    background:whitesmoke;
+}
+.blog-content{
+    overflow: hidden;
+}
+
+.blog-item{
+   width: 30%;
+   float :left;
+   background: white;
+   
+}
+.blog-item .blog-img{
+width: 100%;
+
+}
+.blog-item .blog-img img{
+    width:100%;
+}
+.blog-item .blog-list{
+    list-style: none;
+    padding:5px;
+}
+.blog-item .blog-list>li{
+    display: inline-block;
+    margin: 5px;
+}
+.blog-item .blog-list >li > i{
+    color: #6195ff;
+    margin-right: 5px;
+}
+.blog-item .blog-text{
+    text-transform: capitalize;
+    padding: 20px;
+}
+.blog-item .blog-text .blog-title{
+font: bold;
+margin-bottom: 10px;
+}
+.blog-item .blog-text .blog-desc{
+    color:#999;
+    margin-bottom: 15px;
+}
+.blog-item .blog-text .blog-more{
+    text-decoration: none;
+    color:#6195ff;
+}
+
+
+/*footer section */
+.footer{
+background: #1c1d21;
+text-align: center;
+}
+
+.social-list{
+    list-style: none;
+    margin: 20px 0;
+
+}
+.social-list >li{
+    display: inline-block;
+}
+
+.social-list >li a{
+    display:block;
+    width: 100px;
+    height :50px;
+    background: #6195ff;
+    color: white;
+    margin: 0 5px;
+    border-radius: 30%;
+}
+
+.social-list >li a i{
+    line-height: 50px;
+}
+
+.copyright{
+    color: #999;
+    font:15px;
+    text-transform: uppercase;
+}
